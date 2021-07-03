@@ -1,0 +1,24 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "BlazorWASMGrpc.Shared";
+
+import "google/protobuf/timestamp.proto";
+
+service WeatherProto {
+  rpc Get (GetRequest) returns (GetReply);
+}
+
+message GetRequest {
+}
+
+message GetReply {
+  WeatherForecast weather_forecast = 1;
+}
+
+message WeatherForecast {
+  google.protobuf.Timestamp date = 1;
+  int32 temperature_c = 2;
+  string summary = 3;
+  int32 temperature_f = 4;
+}
+
